@@ -1,0 +1,45 @@
+<div class="auth-wrapper align-items-stretch aut-bg-img">
+  <div class="flex-grow-1">
+    <div class="h-100 d-md-flex align-items-center auth-side-img">
+      <div class="col-sm-10 auth-content w-auto">
+        <img src="assets/images/auth/" alt="" class="img-fluid">
+        <h1 class="text-white my-4"></h1>
+        <h4 class="text-white font-weight-normal"> 
+          
+          .<br/></h4>
+      </div>
+    </div>
+    <div class="auth-side-form">
+      <div class=" auth-content">
+          <form #loginForm (ngSubmit)='loginUser()'>
+              <strong class="text-danger">{{msg}}</strong>
+       <img src="assets/images/auth/" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
+        <h3 class="mb-4 f-w-500">Se connecter</h3>
+        <div class="input-group mb-3">
+          <input [(ngModel)]="employe.email" name ="email" class="form-control" placeholder="Adresse email" required pattern="hg'(àl#~)====***/-+okjhunfuneun" #email="ngModel"
+          [class.is-invalid]="email.invalid && email.touched">
+        </div>
+        <!--<small class="text-danger" [class.d-none]="email.invalid || email.untouched">l'adresse Email est un champ obligatoire.</small>!-->
+        <div *ngIf="email.errors && email.invalid && email.touched">
+          <small class="text-danger" *ngIf="email.errors.required">l'adresse Email est un champ obligatoire.</small>
+          <small class="tesxt-danger" *ngIf="email.errors.pattern">Entrez une adresse Email valide</small>
+        </div>
+        <div class="input-group mb-4">
+          <input type="password" [(ngModel)]="employe.password" name ="password" class="form-control" placeholder="Mot de passe" #password="ngModel" required
+          [class.is-invalid]="password.invalid && password.touched">
+        </div>
+        <small class="text-danger" [class.d-none]="password.invalid"></small>
+        
+        <button class="btn btn-block btn-primary mb-0">Connexion</button>
+      </form>
+        <div class="text-center">
+          <div class="saprator my-4"><span>GET WIRELESS</span></div>
+
+          <img src="assets/images/user/logo.png" class="img-fluid img-radius wid-80" alt="">
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
