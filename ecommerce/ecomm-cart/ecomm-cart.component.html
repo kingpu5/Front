@@ -1,0 +1,90 @@
+<div class="row btn-page">
+  <div class="col-md-12">
+  </div>
+  <div class="col-lg-10 col-lg-12">
+    <app-card [hidHeader]="true">
+      <div class="text-center">
+        <img src="assets/images/pages/interview.svg" alt="image" class="img-fluid wid-100 mb-2">
+        <h5>Demande de congé de maternité<br><span class="badge badge-warning">en attente</span></h5>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <tbody>
+          <tr>
+            <td>Nom</td>
+            <td> : {{this.conge.demandeur.nom}} </td>
+          </tr>
+
+          <tr>
+            <td>Prénom</td>
+            <td> : {{this.conge.demandeur.prenom}} </td>
+          </tr>
+          <tr>
+            <td>Téléphone mobile</td>
+            <td> :  {{this.conge.demandeur.telephoneMobile}} </td>
+          </tr>
+          <tr>
+            <td>Congé</td>
+            <td> : {{this.conge.typeConge}}</td>
+          </tr>
+          <tr>
+            <td>Date de début de congé</td>
+            <td> : {{this.conge.debutConge |date: 'dd/MM/yyyy'}} </td>
+          </tr>
+          <tr>
+            <td>Date de fin de congé</td>
+            <td> : {{this.conge.finConge |date: 'dd/MM/yyyy'}} </td>
+          </tr>
+         
+          </tbody>
+        </table>
+      </div>
+      <button class="btn btn-success btn-sm btn-round has-ripple" (click)="modalPharmacist.show()">Répondre</button>
+
+      <div class="col-sm-12"> 
+        <div class class="row btn-page">
+                <app-ui-modal #modalPharmacist >
+                 <div class="app-modal-header">
+                   <h5 class="text-center mb-10" >Demande de congé de maladie</h5>
+                   <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalPharmacist.hide()"><span aria-hidden="true">&times;</span></button>
+                 </div>
+                 <div class="app-modal-body">
+                   <div class="row">
+                     <div class="col-sm-12"><div class="col-sm-6">
+                    <div class="form-group fill">
+                      <h6>Date du jour </h6>
+                      <hr>{{this.Date |date: 'dd/MM/yyyy'}}
+                    
+                    </div>
+                  </div>
+                       <div class="form-group">
+                         <input type="text"  [readonly]="true" [(ngModel)]="this.newEmploye.nom"  name ="nom "  class="form-control" id="Name" placeholder="Nom du traiteur">
+                       </div>
+                     </div>
+                     <div class="col-sm-12">
+                      <div class="form-group">
+                        <input type="text"  [readonly]="true" [(ngModel)]="this.newEmploye.prenom" name ="prenom " class="form-control" id="Name" placeholder="Prénom du traiteur">
+                      </div>
+                     </div>
+                     
+                  </div>
+                  
+                  </div>
+                 <div class="app-modal-footer">
+                  <button class="btn btn-success " (click)="validerDemande()"  >Valider</button>
+                  <button class="btn btn-danger mt-md-0 mt-2 " (click)="RejeterDemande()" >Rejeter</button>
+                 </div>
+     
+     
+                </app-ui-modal   >
+          
+               </div>
+            </div>
+     
+    </app-card>
+  </div>
+     
+     
+   
+</div>
+
